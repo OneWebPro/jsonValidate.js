@@ -1,7 +1,7 @@
 jsonValidate.js
 ===============
 
-Its a simple method to validate Jsons from ajax request.
+Its a simple method to validate Jsons from ajax request. Full tested.
 
 It recognize json objects, objects with arrays and variables. If we expected a array we should create map with array
 with one value element to map.
