@@ -54,14 +54,14 @@ with one value element to map.</p>
       <span class="c1">//Object variable</span>
       <span class="nx">shop</span><span class="o">:</span> <span class="k">void</span> <span class="mi">0</span>
     <span class="p">}</span>
-      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">_settings</span><span class="p">.</span><span class="nx">brands</span><span class="p">,</span> <span class="p">{</span>
-              <span class="nx">type</span><span class="o">:</span> <span class="s2">"/categories"</span><span class="p">,</span>
-              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
-              <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">categories</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"/categories, {</span>
+<span class="s2">              type: "</span><span class="nx">POST</span><span class="s2">",</span>
+<span class="s2">              dataType: "</span><span class="nx">json</span><span class="s2">",</span>
+<span class="s2">              success: function(data, textStatus, jqXHR) {</span>
+<span class="s2">                if (data.validateJson(categories)) {</span>
+<span class="s2">                    alert("</span><span class="nx">Working</span><span class="s2">");</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    alert("</span><span class="nx">Not</span> <span class="nx">working</span><span class="err">"</span><span class="p">);</span>
                 <span class="p">}</span>
               <span class="p">}</span>
             <span class="p">}</span>
@@ -86,14 +86,14 @@ value constructor in json and in map. If they equal then it will pass.</p>
       <span class="c1">//Object variable</span>
       <span class="nx">shop</span><span class="o">:</span> <span class="s2">""</span>
     <span class="p">}</span>
-      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">_settings</span><span class="p">.</span><span class="nx">brands</span><span class="p">,</span> <span class="p">{</span>
-              <span class="nx">type</span><span class="o">:</span> <span class="s2">"/categories"</span><span class="p">,</span>
-              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
-              <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">categories</span><span class="p">))</span> <span class="p">{</span>
-                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"/categories, {</span>
+<span class="s2">              type: "</span><span class="nx">POST</span><span class="s2">",</span>
+<span class="s2">              dataType: "</span><span class="nx">json</span><span class="s2">",</span>
+<span class="s2">              success: function(data, textStatus, jqXHR) {</span>
+<span class="s2">                if (data.validateJson(categories)) {</span>
+<span class="s2">                    alert("</span><span class="nx">Working</span><span class="s2">");</span>
+<span class="s2">                } else {</span>
+<span class="s2">                    alert("</span><span class="nx">Not</span> <span class="nx">working</span><span class="err">"</span><span class="p">);</span>
                 <span class="p">}</span>
               <span class="p">}</span>
             <span class="p">}</span>
