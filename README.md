@@ -26,8 +26,8 @@ Example 1.
       //Object variable
       shop: void 0
 	}
-      $.ajax(_settings.brands, {
-              type: "/categories",
+      $.ajax("/categories, {
+              type: "POST",
               dataType: "json",
               success: function(data, textStatus, jqXHR) {
                 if (data.validateJson(categories)) {
@@ -58,8 +58,8 @@ Example 2.
       //Object variable
       shop: ""
 	}
-      $.ajax(_settings.brands, {
-              type: "/categories",
+      $.ajax("/categories, {
+              type: "POST",
               dataType: "json",
               success: function(data, textStatus, jqXHR) {
                 if (data.validateJson(categories)) {
