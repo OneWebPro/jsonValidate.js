@@ -30,7 +30,7 @@ Example 1.
               type: "POST",
               dataType: "json",
               success: function(data, textStatus, jqXHR) {
-                if (data.validateJson(categories)) {
+                if (validateJson(categories,data)) {
                  	alert("Working");
                 } else {
                   	alert("Not working");
@@ -62,7 +62,7 @@ Example 2.
               type: "POST",
               dataType: "json",
               success: function(data, textStatus, jqXHR) {
-                if (data.validateJson(categories)) {
+                if (validateJson(categories,data)) {
                  	alert("Working");
                 } else {
                   	alert("Not working");
