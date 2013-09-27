@@ -1,15 +1,18 @@
-Object::validateJson = (map)->
+class ProJson
+	constructor: ->
+
+ProJson::validateJson = (map,data)->
 	for o of map
-		if(this[o]?)
-			if(Object.prototype.toString.call(map[o]) == '[object Array]' and Object.prototype.toString.call( this[o] ) == '[object Array]')
-				for element in this[o]
-					if(!element.validateJson(map[o][0]))
+		if(data[o]?)
+			if(Object.prototype.toString.call(map[o]) == '[object Array]' and Object.prototype.toString.call( data[o] ) == '[object Array]')
+				for element in data[o]
+					if(!ProJson.validateJson(map[o][0],element))
 						return false
 			if(map[o]?)
-				if(map[o].constructor != this[o].constructor)
+				if(map[o].constructor != data[o].constructor)
 					return false
-			if(typeof map[o] == "object" and typeof this[o] == "object")
-				if(!this[o].validateJson(map[o]))
+			if(typeof map[o] == "object" and typeof data[o] == "object")
+				if(!ProJson.validateJson(map[o],data[o]))
 					return false
 		else
 			return false

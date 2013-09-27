@@ -8,7 +8,7 @@
 <body>
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
-<script src="../src/jsonValidate.min.js"></script>
+<script src="../src/jsonValidate.js"></script>
 <script src="assets/qunit-1.12.0.js"></script>
 <script>
 	test("Equal jsons", function () {
@@ -27,8 +27,8 @@
 			values:[jsonNormal, jsonNormal, jsonNormal]
 		};
 		//Validate without types
-		equal(jsonNormal.validateJson(mapNormal), true, "We expect object to be validate to map");
-		equal(jsonList.validateJson(mapList), true, "We expect object with list to be validate map with list");
+		equal(ProJson.validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map");
+		equal(ProJson.validateJson(mapList,jsonList), true, "We expect object with list to be validate map with list");
 		//Validate with types
 		mapNormal = {
 			id:1,
@@ -44,8 +44,8 @@
 		jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
 		};
-		equal(jsonNormal.validateJson(mapNormal), true, "We expect object to be validate to map");
-		equal(jsonList.validateJson(mapList), true, "We expect object with list to be validate map with list");
+		equal(ProJson.validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map");
+		equal(ProJson.validateJson(mapList,jsonList), true, "We expect object with list to be validate map with list");
 	});
 	test("Not equal jsons", function () {
 		var mapNormal = {
@@ -62,8 +62,8 @@
 			values:[jsonNormal, jsonNormal, jsonNormal]
 		};
 		//Not equal structure
-		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map");
-		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list");
+		notEqual(ProJson.validateJson(mapNormal,jsonNormal), true, "We expect object to be not validate to map");
+		notEqual(ProJson.validateJson(mapList,jsonList), true, "We expect object with list to be not validate map with list");
 
 		mapNormal = {
 			id:"",
@@ -80,8 +80,8 @@
 			values:[jsonNormal, jsonNormal, jsonNormal]
 		};
 		//Not equal types
-		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map. Bad types.");
-		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list. Bad types");
+		notEqual(ProJson.validateJson(mapNormal,jsonNormal), true, "We expect object to be not validate to map. Bad types.");
+		notEqual(ProJson.validateJson(mapList,jsonList), true, "We expect object with list to be not validate map with list. Bad types");
 
 		mapNormal = {
 			id:""
@@ -97,8 +97,8 @@
 			values:[jsonNormal, jsonNormal, jsonNormal]
 		};
 		//Not equal types
-		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map. Bad types and structure.");
-		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list. Bad types and structure.");
+		notEqual(ProJson.validateJson(mapNormal,jsonNormal), true, "We expect object to be not validate to map. Bad types and structure.");
+		notEqual(ProJson.validateJson(mapList,jsonList), true, "We expect object with list to be not validate map with list. Bad types and structure.");
 	});
 </script>
 </body>
