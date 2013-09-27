@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Jsonvalidate.js by OneWebPro</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Jsonvalidate.js</h1>
+        <h2>Simple json validate method.</h2>
+        <a href="https://github.com/OneWebPro/jsonValidate.js" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="jsonvalidatejs" class="anchor" href="#jsonvalidatejs"><span class="octicon octicon-link"></span></a>jsonValidate.js</h1>
+
+<p>Its a simple method to validate Jsons from ajax request. Full tested. For example you can look at test/index.html.</p>
+
+<p>It recognize json objects, objects with arrays and variables. If we expected a array we should create map with array
+with one value element to map.</p>
+
+<p>First example show object map without validate object types.</p>
+
+<h2>
+<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example 1.</h2>
+
+<div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">categories</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//Array</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span>
+                <span class="c1">//Array element object</span>
+              <span class="p">{</span>
+                <span class="nx">id</span><span class="o">:</span> <span class="k">void</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="k">void</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nx">image</span><span class="o">:</span> <span class="k">void</span> <span class="mi">0</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="c1">//Object variable</span>
+      <span class="nx">shop</span><span class="o">:</span> <span class="k">void</span> <span class="mi">0</span>
+    <span class="p">}</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">_settings</span><span class="p">.</span><span class="nx">brands</span><span class="p">,</span> <span class="p">{</span>
+              <span class="nx">type</span><span class="o">:</span> <span class="s2">"/categories"</span><span class="p">,</span>
+              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
+              <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">categories</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+</pre></div>
+
+<p>Second example show how to validate json types. In map object, change variables to some real values. Method check
+value constructor in json and in map. If they equal then it will pass.</p>
+
+<h2>
+<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example 2.</h2>
+
+<div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">categories</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//Array</span>
+    <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span>
+                <span class="c1">//Array element object</span>
+              <span class="p">{</span>
+                <span class="nx">id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="nx">name</span><span class="o">:</span> <span class="s2">""</span><span class="p">,</span>
+                <span class="nx">image</span><span class="o">:</span> <span class="s2">""</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="c1">//Object variable</span>
+      <span class="nx">shop</span><span class="o">:</span> <span class="s2">""</span>
+    <span class="p">}</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">_settings</span><span class="p">.</span><span class="nx">brands</span><span class="p">,</span> <span class="p">{</span>
+              <span class="nx">type</span><span class="o">:</span> <span class="s2">"/categories"</span><span class="p">,</span>
+              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
+              <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">categories</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+</pre></div>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/OneWebPro/jsonValidate.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/OneWebPro/jsonValidate.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/OneWebPro/jsonValidate.js"></a> is maintained by <a href="https://github.com/OneWebPro">OneWebPro</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
