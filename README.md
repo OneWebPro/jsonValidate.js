@@ -1,6 +1,8 @@
 jsonValidate.js
 ===============
 
+Look at page  http://onewebpro.github.io/jsonValidate.js 
+
 Its a simple method to validate Jsons from ajax request. Full tested. For example you can look at test/index.html.
 
 It recognize json objects, objects with arrays and variables. If we expected a array we should create map with array
