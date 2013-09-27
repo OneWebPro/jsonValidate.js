@@ -15,17 +15,17 @@
 		var mapNormal = {
 			id:void 0,
 			name:void 0
-		}
+		};
 		var jsonNormal = {
 			id:1,
 			name:""
-		}
+		};
 		var mapList = {
 			values:[mapNormal]
-		}
+		};
 		var jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
-		}
+		};
 		//Validate without types
 		equal(jsonNormal.validateJson(mapNormal), true, "We expect object to be validate to map");
 		equal(jsonList.validateJson(mapList), true, "We expect object with list to be validate map with list");
@@ -33,17 +33,17 @@
 		mapNormal = {
 			id:1,
 			name:""
-		}
+		};
 		jsonNormal = {
 			id:9999,
 			name:"test"
-		}
+		};
 		mapList = {
 			values:[mapNormal]
-		}
+		};
 		jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
-		}
+		};
 		equal(jsonNormal.validateJson(mapNormal), true, "We expect object to be validate to map");
 		equal(jsonList.validateJson(mapList), true, "We expect object with list to be validate map with list");
 	});
@@ -51,16 +51,16 @@
 		var mapNormal = {
 			id:void 0,
 			name:void 0
-		}
+		};
 		var jsonNormal = {
 			id:1
-		}
+		};
 		var mapList = {
 			values:[mapNormal]
-		}
+		};
 		var jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
-		}
+		};
 		//Not equal structure
 		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map");
 		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list");
@@ -68,34 +68,34 @@
 		mapNormal = {
 			id:"",
 			name:1
-		}
+		};
 		jsonNormal = {
 			id:9999,
 			name:"test"
-		}
+		};
 		mapList = {
 			values:[mapNormal]
-		}
+		};
 		jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
-		}
+		};
 		//Not equal types
 		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map. Bad types.");
 		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list. Bad types");
 
 		mapNormal = {
 			id:""
-		}
+		};
 		jsonNormal = {
 			id:9999,
 			name:"test"
-		}
+		};
 		mapList = {
 			values:[mapNormal]
-		}
+		};
 		jsonList = {
 			values:[jsonNormal, jsonNormal, jsonNormal]
-		}
+		};
 		//Not equal types
 		notEqual(jsonNormal.validateJson(mapNormal), true, "We expect object to be not validate to map. Bad types and structure.");
 		notEqual(jsonList.validateJson(mapList), true, "We expect object with list to be not validate map with list. Bad types and structure.");
