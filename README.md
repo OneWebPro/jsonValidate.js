@@ -1,7 +1,7 @@
+Documentation on [page](http://onewebpro.github.io/jsonValidate.js ).
+---
 jsonValidate.js
 ===============
-
-Look at page  http://onewebpro.github.io/jsonValidate.js 
 
 Its a simple method to validate Jsons from ajax request. Full tested. For example you can look at test/index.html.
 
