@@ -100,6 +100,23 @@
 		notEqual(validateJson(mapNormal,jsonNormal), true, "We expect object to be not validate to map. Bad types and structure.");
 		notEqual(validateJson(mapList,jsonList), true, "We expect object with list to be not validate map with list. Bad types and structure.");
 	});
+    test("Check regexp", function(){
+        mapNormal = {
+            email:/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/
+        };
+        jsonNormal = {
+            email:"test@test.pl"
+        };
+        equal(validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map. We use regex object");
+        mapNormal = {
+            email:"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"
+        };
+        jsonNormal = {
+            email:"test@test.pl"
+        };
+        equal(validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map. We use regex string");
+
+    })
 </script>
 </body>
 </html>
