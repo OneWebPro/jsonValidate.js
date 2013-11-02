@@ -39,7 +39,7 @@ with one value element to map.</p>
 <p>First example show object map without validate object types.</p>
 
 <h2>
-<a name="example-1" class="anchor" href="#example-1"><span class="octicon octicon-link"></span></a>Example 1.</h2>
+<a name="example-1-structure" class="anchor" href="#example-1-structure"><span class="octicon octicon-link"></span></a>Example 1: Structure.</h2>
 
 <div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">categories</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">//Array</span>
@@ -71,7 +71,7 @@ with one value element to map.</p>
 value constructor in json and in map. If they equal then it will pass.</p>
 
 <h2>
-<a name="example-2" class="anchor" href="#example-2"><span class="octicon octicon-link"></span></a>Example 2.</h2>
+<a name="example-2--type" class="anchor" href="#example-2--type"><span class="octicon octicon-link"></span></a>Example 2 : Type.</h2>
 
 <div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">categories</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1">//Array</span>
@@ -91,6 +91,40 @@ value constructor in json and in map. If they equal then it will pass.</p>
               <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
               <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
                 <span class="k">if</span> <span class="p">(</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">categories</span><span class="p">,</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="-example-3--regexps" class="anchor" href="#-example-3--regexps"><span class="octicon octicon-link"></span></a> Example 3 : RegExps.</h2>
+
+<p>We can use validator with RegExps. Validator understand RegExps objects, pattern objects ( in /  / colons) and strings with RegExp patttern (if string is not empty, validator use it to build RegExp object).  </p>
+
+<div class="highlight highlight-js"><pre>    <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">//Array</span>
+    <span class="nx">emails</span><span class="o">:</span> <span class="p">[</span>
+                <span class="c1">//Array element object</span>
+              <span class="p">{</span>
+                <span class="c1">//Pattern RegExp object</span>
+                <span class="nx">email_1</span><span class="o">:</span> <span class="sr">/^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/</span>
+                <span class="c1">//RegExp object</span>
+                <span class="nx">email_2</span><span class="o">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s2">"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"</span><span class="p">),</span>
+                <span class="c1">//String pattern</span>
+                <span class="nx">email_3</span><span class="o">:</span> <span class="s2">"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"</span><span class="p">,</span>
+              <span class="p">}</span>
+      <span class="p">],</span>
+      <span class="c1">//Object variable</span>
+      <span class="nx">name</span><span class="o">:</span> <span class="s2">""</span>
+    <span class="p">}</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="s2">"/users"</span><span class="p">,</span> <span class="p">{</span>
+              <span class="nx">type</span><span class="o">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+              <span class="nx">dataType</span><span class="o">:</span> <span class="s2">"json"</span><span class="p">,</span>
+              <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">jqXHR</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">validateJson</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
                     <span class="nx">alert</span><span class="p">(</span><span class="s2">"Working"</span><span class="p">);</span>
                 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
                     <span class="nx">alert</span><span class="p">(</span><span class="s2">"Not working"</span><span class="p">);</span>
