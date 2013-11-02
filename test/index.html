@@ -107,6 +107,13 @@
         jsonNormal = {
             email:"test@test.pl"
         };
+        equal(validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map. We use regex pattern object");
+        mapNormal = {
+            email: new RegExp("^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$")
+        };
+        jsonNormal = {
+            email:"test@test.pl"
+        };
         equal(validateJson(mapNormal,jsonNormal), true, "We expect object to be validate to map. We use regex object");
         mapNormal = {
             email:"^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$"
